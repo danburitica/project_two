@@ -3,28 +3,17 @@
   <head>
     <title>ProjectTwo</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%if user_signed_in? %>
-      <li class="col-md">
-        <%=link_to "Cerrar Sesion",  destroy_user_session_path, method: :delete%>
-      </li>
-    <%else%>
-      <li class="col-md">
-        <%=link_to "Iniciar Sesion",  new_user_session_path%>
-      </li>
-      <li class="col-md">
-        <%=link_to "Crear Cuenta",  new_user_registration_path%>
-      </li>
-    <%end%>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class='container'>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
