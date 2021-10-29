@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       @post = current_user.posts.build
       @feed_items = Post.all.paginate(page: params[:page])
+      Post.where(expirationDate: Date.today).destroy_all
     end
   end
   
