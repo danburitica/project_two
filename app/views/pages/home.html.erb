@@ -1,0 +1,21 @@
+<% if user_signed_in? %> 
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'layouts/user_info' %> 
+      </section>
+    <section class="post_form">
+    <%= render 'layouts/post_form' %> </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Posts</h3>
+      <%= render 'layouts/feedHome' %> 
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the Project Two!</h1>
+    <h2>This is the home page</h2>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %> 
+  </div>
+<% end %>

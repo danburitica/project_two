@@ -1,0 +1,11 @@
+<li id="post-<%= post.id %>">
+  <span class="user"><%= post.user.name %></span> 
+  <span class="content"><%= post.content %></span>
+  <span 
+    class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.
+    <% if current_user.id == post.user.id %>
+      <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </span>
+  <span class="expiration">This post expires <%= post.expirationDate %>. </span>
+</li>
