@@ -7,5 +7,5 @@
       <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
   </span>
-  <span class="expiration">This post expires <%= post.expirationDate %>. </span>
+  <span class="expiration">This post expires <%= post.expirationDate.strftime("%F  %I:%M %P") %>. </span>
 </li>

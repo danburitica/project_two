@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_28_213825) do
+ActiveRecord::Schema.define(version: 2021_10_30_060701) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
-    t.date "expirationDate"
+    t.datetime "expirationDate"
     t.boolean "seenStatus"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
