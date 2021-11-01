@@ -1,11 +1,16 @@
-<li id="post-<%= post.id %>">
-  <span class="user"><%= "Posted by: #{post.user.name} #{post.user.lastname}"%></span>
-  <span class="content"><%= post.content %></span>
-  <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+<li id="post-<%= post.id %>" class="panel panel-success" style="position: relative">
+  <div class="panel-heading flex-panel">
+    <span class="user panel-title"><%= "Posted by: #{post.user.name} #{post.user.lastname}"%></span>
+    <div>
+      <% if current_user.id == post.user.id %>
+        <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <% end %>
+      <%= link_to "Mark as Seen", seen_path(post: post.id), class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div class="panel-body">
+    <span class="content"><%= post.content %></span>
+    <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+  </div>
   <span class="expiration">This post expires <%= post.expirationDate.strftime("%F  %I:%M %P") %>. </span>
-  <br>
-  <% if current_user.id == post.user.id %>
-      <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-  <%= link_to "Mark as Seen", seen_path(post: post.id) %>
 </li>

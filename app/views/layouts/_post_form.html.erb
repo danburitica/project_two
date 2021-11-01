@@ -1,10 +1,9 @@
 <%= form_with(model: @post, local: true) do |f| %> 
   <%= render 'layouts/error_messages', object: f.object %>
-  <div class="field">
-    <%= Time.zone.now.strftime("%F  %I:%M %P") %>
-    <%= f.text_area :content, placeholder: "Hey! What's up?" %> 
+  <div class="field form-group">
+    <%= f.text_area :content, placeholder: "Hey! What's up?", class: "form-control", rows: 3 %> 
   </div>
   <%= f.label :expiration, "Choose an expiration date:" %>
-  <%= f.datetime_field :expirationDate %>
-  <%= f.submit "Post", class: "btn btn-primary" %> 
+  <%= f.datetime_field :expirationDate, class: "form-control" %>
+  <%= f.submit "Post", class: "btn btn-success" %> 
 <% end %>
