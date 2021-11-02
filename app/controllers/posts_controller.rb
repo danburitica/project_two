@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Post Created!"
       redirect_to root_url
     else
-      @feed_items = Post.left_outer_joins(:seenPosts).where(seenPosts: {post_id: nil}).paginate(page: params[:page])
+      @feed_items = Post.where.not(id: SeenPost.select("post_id").where(user_id: current_user)).paginate(page: params[:page])
       render 'pages/home'
     end
 

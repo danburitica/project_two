@@ -7,10 +7,6 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
-    padding-top: 60px;
-}
-
 section {
     overflow: auto;
 }
@@ -219,14 +215,73 @@ aside {
     margin: 5em auto 0;
 }
 
-.row {
-    margin-top: 5em;
-}
-
-.alert {
-    margin-top: 1.5em;
-}
-
 .navbar-btn {
     margin-left: 1em;
+}
+
+input.btn.btn-success {
+    width: 10em;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.2em;
+    padding: 0.5rem 0;
+}
+
+.panel-body {
+    margin-bottom: 2.5em;
+}
+
+/* Small devices (tablets, 768px and up) */
+
+@media (max-width: 768px) {
+    .navbar-btn {
+        float: right;
+        margin-right: 1em;
+    }
+
+    #logo {
+        margin-top: 0.2em;
+    }
+
+    .navbar-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav {
+        display: flex;
+    }
+
+    a.btn.btn-default.navbar-btn {
+        margin: 5px;
+        padding: 5px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    a.btn.btn-primary {
+        font-size: 12px;
+        width: 8em;
+    }
+
+    a.btn.btn-danger {
+        font-size: 12px;
+        width: 5em;
+    }
+
+    .panel-title {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-right {
+        margin-right: 0;
+    }
 }

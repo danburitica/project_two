@@ -4,8 +4,9 @@
     <div>
       <% if current_user.id == post.user.id %>
         <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to "Mark as Seen", seen_path(post: post.id), class: "btn btn-primary" %>
       <% end %>
-      <%= link_to "Mark as Seen", seen_path(post: post.id), class: "btn btn-primary" %>
     </div>
   </div>
   <div class="panel-body">

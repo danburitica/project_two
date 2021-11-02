@@ -1,7 +1,7 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
     <%= link_to "Project Two", root_url, id: "logo" %>
-    <nav>
       <ul class="nav navbar-nav navbar-right">
         <%if user_signed_in? %>
           <li>
@@ -22,6 +22,6 @@
           </li>
         <%end%>
       </ul>
-    </nav>
+    </div>
   </div>
-</header>
+</nav>
