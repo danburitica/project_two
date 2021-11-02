@@ -3,4 +3,6 @@
     <%= render @feed_items %> 
   </ol>
   <%= will_paginate @feed_items, params: { controller: :pages, action: :home } %>
+<% else %>
+  <h1>There is nothing here, write a post!</h1>
 <% end %>

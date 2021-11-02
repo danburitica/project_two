@@ -1,1 +1,14 @@
-
+<% if user_signed_in? %> 
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Posts</h3>
+      <%= render 'layouts/feed_profile' %> 
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron" style="margin-top: 5em">
+    <h1>Welcome to the Project Two!</h1>
+    <h2>This is the home page</h2>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %> 
+  </div>
+<% end %>

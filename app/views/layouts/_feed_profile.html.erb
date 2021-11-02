@@ -1,0 +1,8 @@
+<% if @my_posts.any? %> 
+  <ol class="post">
+    <%= render @my_posts %> 
+  </ol>
+  <%= will_paginate @my_posts, params: { controller: :pages, action: :feed } %>
+<% else %>
+  <h1>You have no posts</h1>
+<% end %>

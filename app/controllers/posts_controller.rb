@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params) 
     if @post.save
-      flash[:success] = "Post Created!"
+      flash[:notice] = "Post Created!"
       redirect_to root_url
     else
       @feed_items = Post.left_outer_joins(:seenPosts).where(seenPosts: {post_id: nil}).paginate(page: params[:page])
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post.destroy
-    flash[:success] = "Post deleted"
+    flash[:alert] = "Post deleted"
     if request.referrer.nil? || request.referrer == posts_url
       redirect_to root_url
     else
