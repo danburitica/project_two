@@ -3,7 +3,9 @@ class PagesController < ApplicationController
     if user_signed_in?
       @post = current_user.posts.build
       @feed_items = Post.left_outer_joins(:seenPosts).where(seenPosts: {post_id: nil}).paginate(page: params[:page])
-      Post.where("expirationDate <= :current_datetime", {current_datetime: Time.zone.now}).delete_all
+      if Post.any?
+        Post.where("expirationDate <= :current_datetime", {current_datetime: Time.zone.now}).delete_all
+      end
     end
   end
   
