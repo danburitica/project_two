@@ -6,8 +6,5 @@ class CreateSeenPosts < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :posts, :post
-    add_index :posts, :user
-    add_index :posts, [:post, :user], unique: true
   end
 end
